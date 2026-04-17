@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend-Pulse | 글로벌 뷰티 시장 분석 플랫폼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap');
+        body { font-family: 'Pretendard', sans-serif; background-color: #f1f5f9; }
+        .sidebar-item:hover { background-color: #f8fafc; color: #ec4899; }
+        .card { background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="flex min-h-screen">
+
+    <aside class="w-64 bg-white border-r border-slate-200 hidden lg:flex flex-col">
+        <div class="p-6 border-b border-slate-100 flex items-center gap-2">
+            <div class="w-8 h-8 bg-pink-500 rounded-lg flex items-center justify-center text-white">
+                <i class="fas fa-wave-square"></i>
+            </div>
+            <span class="text-xl font-bold tracking-tight">Trend-Pulse</span>
+        </div>
+        <nav class="flex-1 p-4 space-y-2">
+            <a href="#" class="sidebar-item flex items-center gap-3 p-3 rounded-xl text-slate-600 font-medium transition">
+                <i class="fas fa-th-large"></i> 대시보드 홈
+            </a>
+            <a href="#market-share" class="sidebar-item flex items-center gap-3 p-3 rounded-xl text-slate-600 font-medium transition">
+                <i class="fas fa-chart-pie"></i> 글로벌 시장 순위
+            </a>
+            <a href="#regional-trend" class="sidebar-item flex items-center gap-3 p-3 rounded-xl text-slate-600 font-medium transition">
+                <i class="fas fa-globe"></i> 대륙별 트렌드
+            </a>
+            <a href="#k-beauty" class="sidebar-item flex items-center gap-3 p-3 rounded-xl text-slate-600 font-medium transition">
+                <i class="fas fa-sparkles"></i> K-뷰티 스포트라이트
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <div class="bg-slate-50 p-4 rounded-xl">
+                <p class="text-xs text-slate-500 mb-2">리포트 업데이트</p>
+                <p class="text-sm font-bold">2026년 4월 트렌드</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-y-auto h-screen">
+        
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 sticky top-0 z-10">
+            <h1 class="font-bold text-lg text-slate-800">Global Beauty Market Intelligence</h1>
+            <div class="flex items-center gap-4 text-sm">
+                <span class="text-slate-400">마지막 업데이트: 4시간 전</span>
+                <button class="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-black transition">데이터 내려받기</button>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-8">
+            
+            <section id="market-share" class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                <div class="card p-6">
+                    <h3 class="font-bold text-slate-800 mb-6 flex items-center justify-between">
+                        <span>글로벌 화장품 기업 TOP 5</span>
+                        <span class="text-xs text-slate-400 font-normal">매출액 기준</span>
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead class="text-slate-400 border-b border-slate-50">
+                                <tr>
+                                    <th class="pb-3 font-medium">순위</th>
+                                    <th class="pb-3 font-medium">기업명</th>
+                                    <th class="pb-3 font-medium">주요 국가</th>
+                                    <th class="pb-3 font-medium text-right">상태</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-50">
+                                <tr>
+                                    <td class="py-4 font-bold text-pink-500">01</td>
+                                    <td class="py-4 font-semibold">L'Oréal (로레알)</td>
+                                    <td class="py-4 text-slate-500">프랑스</td>
+                                    <td class="py-4 text-right text-green-500"><i class="fas fa-caret-up mr-1"></i>상향</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-bold text-slate-600">02</td>
+                                    <td class="py-4 font-semibold">Unilever (유니레버)</td>
+                                    <td class="py-4 text-slate-500">영국</td>
+                                    <td class="py-4 text-right text-slate-400">유지</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-bold text-slate-600">03</td>
+                                    <td class="py-4 font-semibold">Estée Lauder (에스티로더)</td>
+                                    <td class="py-4 text-slate-500">미국</td>
+                                    <td class="py-4 text-right text-red-500"><i class="fas fa-caret-down mr-1"></i>하향</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-bold text-slate-600">04</td>
+                                    <td class="py-4 font-semibold">P&G</td>
+                                    <td class="py-4 text-slate-500">미국</td>
+                                    <td class="py-4 text-right text-slate-400">유지</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-bold text-slate-600">05</td>
+                                    <td class="py-4 font-semibold">Shiseido (시세이도)</td>
+                                    <td class="py-4 text-slate-500">일본</td>
+                                    <td class="py-4 text-right text-green-500"><i class="fas fa-caret-up mr-1"></i>상향</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card p-6">
+                    <h3 class="font-bold text-slate-800 mb-6">K-뷰티 핵심 플레이어</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-pink-50 rounded-2xl border border-pink-100">
+                            <p class="text-xs text-pink-500 font-bold mb-1">브랜드 강자</p>
+                            <h4 class="font-bold text-slate-800">아모레퍼시픽 / LG생건</h4>
+                            <p class="text-[10px] text-slate-500 mt-2">글로벌 프리미엄 시장 주도</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <p class="text-xs text-slate-400 font-bold mb-1">제조/ODM</p>
+                            <h4 class="font-bold text-slate-800">코스맥스 / 한국콜마</h4>
+                            <p class="text-[10px] text-slate-500 mt-2">글로벌 뷰티 제품의 70% 제조</p>
+                        </div>
+                        <div class="col-span-2 p-4 bg-slate-900 text-white rounded-2xl">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-xs text-slate-400 font-bold mb-1 text-pink-400">유통 플랫폼</p>
+                                    <h4 class="font-bold">CJ 올리브영</h4>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs bg-pink-500 px-2 py-1 rounded">글로벌 확장세</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="regional-trend" class="card overflow-hidden">
+                <div class="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+                    <h3 class="font-bold text-slate-800">대륙별 트렌드 레이더</h3>
+                    <div class="flex gap-2">
+                        <button class="px-4 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-bold hover:bg-slate-50 transition">북미</button>
+                        <button class="px-4 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-bold hover:bg-slate-50 transition">유럽</button>
+                        <button class="px-4 py-1.5 bg-pink-500 text-white rounded-lg text-xs font-bold transition">아시아</button>
+                    </div>
+                </div>
+                <div class="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <p class="text-xs text-slate-400 font-bold mb-4 uppercase tracking-wider">유행 화장법</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-500 font-bold">#1</div>
+                                <span class="text-sm font-semibold">글래스 스킨 (속광)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 font-bold">#2</div>
+                                <span class="text-sm font-semibold">오버립 스머징</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-bold mb-4 uppercase tracking-wider">인기 제품군</p>
+                        <div class="space-y-4 text-sm">
+                            <div class="flex justify-between items-center">
+                                <span>레티놀 세럼</span>
+                                <span class="bg-green-100 text-green-600 px-2 py-0.5 rounded text-[10px] font-bold">급상승</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>쿠션 팩트</span>
+                                <span class="text-slate-400 text-[10px]">스테디</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-bold mb-4 uppercase tracking-wider">선호 스타일</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold">#내추럴</span>
+                            <span class="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold">#Y2K_무드</span>
+                            <span class="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold">#비건_뷰티</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-bold mb-4 uppercase tracking-wider">주목 성분</p>
+                        <div class="bg-pink-50 p-4 rounded-xl border border-pink-100">
+                            <h4 class="text-sm font-bold text-pink-600 mb-1">Bakuchiol (바쿠치올)</h4>
+                            <p class="text-[10px] text-pink-400 leading-tight">민감성 피부를 위한 식물성 레티놀 대안으로 언급량 150% 증가</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="p-8 text-center text-slate-400 text-xs">
+            &copy; 2026 Trend-Pulse Data Solution. 모든 데이터는 글로벌 소셜 미디어 마이닝을 기반으로 산출되었습니다.
+        </footer>
+    </main>
+
+</body>
+</html>
