@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick-A-Flick | 취향 밀착형 OTT 큐레이션</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;700;900&display=swap');
+        body { font-family: 'Pretendard', sans-serif; background-color: #09090b; color: #ffffff; }
+        
+        /* 버튼 선택 효과 */
+        .selectable.selected { border-color: #e50914; background-color: rgba(229, 9, 20, 0.1); }
+        .selectable:hover { border-color: #e50914; transform: translateY(-2px); }
+        
+        /* 페이드 인 애니메이션 */
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center">
+
+    <section id="step-0" class="w-full max-w-4xl px-6 text-center fade-in">
+        <h1 class="text-5xl md:text-7xl font-black italic text-red-600 tracking-tighter mb-6">Pick-A-Flick</h1>
+        <p class="text-xl md:text-2xl font-bold mb-4">지금 당신에게 완벽한 콘텐츠를 찾아드릴게요.</p>
+        <p class="text-zinc-400 mb-12">넷플릭스, 디즈니+, 티빙, 웨이브의 수많은 작품 중<br>당신의 취향과 기분에 딱 맞는 3가지를 엄선합니다.</p>
+        <button onclick="nextStep('step-0', 'step-1')" class="bg-red-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition shadow-[0_0_20px_rgba(229,9,20,0.4)]">
+            취향 분석 시작하기
+        </button>
+    </section>
+
+    <section id="step-1" class="w-full max-w-4xl px-6 hidden fade-in">
+        <div class="mb-10 text-center">
+            <span class="text-red-600 font-bold tracking-widest text-sm mb-2 block">QUESTION 01</span>
+            <h2 class="text-3xl font-bold">좋아하는 장르를 모두 골라주세요.</h2>
+            <p class="text-zinc-500 mt-2">중복 선택이 가능합니다.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            <button onclick="toggleSelect(this)" class="selectable border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 transition">
+                <i class="fas fa-fighter-jet text-3xl text-zinc-400"></i><span class="font-bold">액션</span>
+            </button>
+            <button onclick="toggleSelect(this)" class="selectable border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 transition">
+                <i class="fas fa-heart text-3xl text-zinc-400"></i><span class="font-bold">로맨스</span>
+            </button>
+            <button onclick="toggleSelect(this)" class="selectable border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 transition">
+                <i class="fas fa-laugh-squint text-3xl text-zinc-400"></i><span class="font-bold">코미디</span>
+            </button>
+            <button onclick="toggleSelect(this)" class="selectable border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 transition">
+                <i class="fas fa-ghost text-3xl text-zinc-400"></i><span class="font-bold">공포/스릴러</span>
+            </button>
+            <button onclick="toggleSelect(this)" class="selectable border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 transition">
+                <i class="fas fa-rocket text-3xl text-zinc-400"></i><span class="font-bold">SF/판타지</span>
+            </button>
+            <button onclick="toggleSelect(this)" class="selectable border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 transition">
+                <i class="fas fa-theater-masks text-3xl text-zinc-400"></i><span class="font-bold">드라마</span>
+            </button>
+            <button onclick="toggleSelect(this)" class="selectable border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 transition">
+                <i class="fas fa-video text-3xl text-zinc-400"></i><span class="font-bold">다큐멘터리</span>
+            </button>
+            <button onclick="toggleSelect(this)" class="selectable border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 transition">
+                <i class="fas fa-magic text-3xl text-zinc-400"></i><span class="font-bold">애니메이션</span>
+            </button>
+        </div>
+        <div class="text-center">
+            <button onclick="nextStep('step-1', 'step-2')" class="bg-white text-black px-10 py-3 rounded-full font-bold hover:bg-zinc-200 transition">다음 질문 <i class="fas fa-arrow-right ml-2"></i></button>
+        </div>
+    </section>
+
+    <section id="step-2" class="w-full max-w-4xl px-6 hidden fade-in">
+        <div class="mb-10 text-center">
+            <span class="text-red-600 font-bold tracking-widest text-sm mb-2 block">QUESTION 02</span>
+            <h2 class="text-3xl font-bold">지금 기분이 어떠신가요?</h2>
+            <p class="text-zinc-500 mt-2">가장 가까운 하나를 선택해주세요.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            <button onclick="singleSelect('step-2', this)" class="single-opt-2 selectable border-2 border-zinc-800 rounded-2xl p-8 text-xl font-bold transition">즐거워 😄</button>
+            <button onclick="singleSelect('step-2', this)" class="single-opt-2 selectable border-2 border-zinc-800 rounded-2xl p-8 text-xl font-bold transition">지쳤어 😩</button>
+            <button onclick="singleSelect('step-2', this)" class="single-opt-2 selectable border-2 border-zinc-800 rounded-2xl p-8 text-xl font-bold transition">우울해 🌧️</button>
+            <button onclick="singleSelect('step-2', this)" class="single-opt-2 selectable border-2 border-zinc-800 rounded-2xl p-8 text-xl font-bold transition">아무 생각이 없어 😶</button>
+        </div>
+        <div class="text-center">
+            <button onclick="nextStep('step-2', 'step-3')" class="bg-white text-black px-10 py-3 rounded-full font-bold hover:bg-zinc-200 transition">다음 질문 <i class="fas fa-arrow-right ml-2"></i></button>
+        </div>
+    </section>
+
+    <section id="step-3" class="w-full max-w-4xl px-6 hidden fade-in">
+        <div class="mb-10 text-center">
+            <span class="text-red-600 font-bold tracking-widest text-sm mb-2 block">QUESTION 03</span>
+            <h2 class="text-3xl font-bold">영화를 보고 난 후, 어떤 기분이 들었으면 하나요?</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10 text-left">
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">🥶 등골이 서늘한 오싹함을 느끼고 싶어</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">😂 걱정 없이 미친 듯이 웃고 싶어</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">🥰 죽어있던 연애세포가 깨며 설레고 싶어</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">🔥 스트레스가 날아가는 카타르시스가 필요해</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">🥺 눈물 펑펑 흘리며 감정을 쏟아내고 싶어</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">✨ 완전히 새로운 세계로 모험을 떠나고 싶어</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">☕ 잔잔하고 따뜻한 위로를 받고 싶어</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">🕵️ 범인이 누군지 뇌를 자극하며 추리하고 싶어</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">🤯 긴장감 넘치는 전개로 도파민을 터뜨리고 싶어</button>
+            <button onclick="singleSelect('step-3', this)" class="single-opt-3 selectable border border-zinc-800 rounded-xl p-4 font-semibold transition text-left">🤔 진한 여운으로 깊은 생각에 잠기고 싶어</button>
+        </div>
+        <div class="text-center">
+            <button onclick="showLoading()" class="bg-red-600 text-white px-10 py-3 rounded-full font-bold hover:bg-red-700 transition shadow-lg shadow-red-600/30">결과 보기</button>
+        </div>
+    </section>
+
+    <section id="loading" class="w-full max-w-4xl px-6 text-center hidden fade-in">
+        <i class="fas fa-spinner fa-spin text-5xl text-red-600 mb-6"></i>
+        <h2 class="text-2xl font-bold">당신의 취향을 분석하고 있습니다...</h2>
+        <p class="text-zinc-500 mt-2">최적의 OTT 플랫폼 데이터를 탐색 중입니다.</p>
+    </section>
+
+    <section id="result" class="w-full max-w-5xl px-6 hidden fade-in py-12">
+        <div class="mb-12 text-center">
+            <h2 class="text-4xl font-bold mb-4">분석 완료! 오늘의 추천작 3선</h2>
+            <p class="text-zinc-400">포스터를 클릭하면 해당 OTT 플랫폼으로 바로 이동합니다.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a href="https://www.netflix.com/kr/title/80000403" target="_blank" class="group block relative rounded-2xl overflow-hidden border border-zinc-800 hover:border-red-600 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=2070&auto=format&fit=crop" alt="Pulp Fiction" class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-500 opacity-70 group-hover:opacity-100">
+                <div class="absolute top-4 left-4 bg-[#E50914] text-white text-xs font-bold px-3 py-1 rounded">NETFLIX</div>
+                <div class="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6">
+                    <h3 class="text-2xl font-bold mb-1">펄프 픽션</h3>
+                    <p class="text-zinc-400 text-sm mb-3">#쿠엔틴타란티노 #도파민폭발 #거친매력</p>
+                    <p class="text-sm font-semibold text-red-400">보러가기 <i class="fas fa-play ml-1"></i></p>
+                </div>
+            </a>
+
+            <a href="https://www.disneyplus.com/" target="_blank" class="group block relative rounded-2xl overflow-hidden border border-zinc-800 hover:border-blue-500 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop" alt="Moving" class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-500 opacity-70 group-hover:opacity-100">
+                <div class="absolute top-4 left-4 bg-[#113CCF] text-white text-xs font-bold px-3 py-1 rounded">DISNEY+</div>
+                <div class="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6">
+                    <h3 class="text-2xl font-bold mb-1">무빙</h3>
+                    <p class="text-zinc-400 text-sm mb-3">#초능력액션 #카타르시스 #가족애</p>
+                    <p class="text-sm font-semibold text-blue-400">보러가기 <i class="fas fa-play ml-1"></i></p>
+                </div>
+            </a>
+
+            <a href="https://www.tving.com/" target="_blank" class="group block relative rounded-2xl overflow-hidden border border-zinc-800 hover:border-red-500 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop" alt="Death's Game" class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-500 opacity-70 group-hover:opacity-100">
+                <div class="absolute top-4 left-4 bg-[#FF153C] text-white text-xs font-bold px-3 py-1 rounded">TVING</div>
+                <div class="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6">
+                    <h3 class="text-2xl font-bold mb-1">이재, 곧 죽습니다</h3>
+                    <p class="text-zinc-400 text-sm mb-3">#사이다전개 #스릴러 #몰입감최고</p>
+                    <p class="text-sm font-semibold text-red-400">보러가기 <i class="fas fa-play ml-1"></i></p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="text-center mt-12">
+            <button onclick="location.reload()" class="border border-zinc-600 text-zinc-400 px-6 py-2 rounded-full hover:bg-zinc-800 transition text-sm">
+                <i class="fas fa-redo mr-2"></i>테스트 다시하기
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // 페이지 전환 함수
+        function nextStep(currentId, nextId) {
+            document.getElementById(currentId).classList.add('hidden');
+            document.getElementById(nextId).classList.remove('hidden');
+        }
+
+        // Q1. 다중 선택 로직
+        function toggleSelect(button) {
+            button.classList.toggle('selected');
+        }
+
+        // Q2, Q3. 단일 선택 로직
+        function singleSelect(stepId, button) {
+            let className = stepId === 'step-2' ? 'single-opt-2' : 'single-opt-3';
+            let options = document.getElementsByClassName(className);
+            for(let opt of options) {
+                opt.classList.remove('selected');
+            }
+            button.classList.add('selected');
+        }
+
+        // 로딩 화면 후 결과 보여주기
+        function showLoading() {
+            document.getElementById('step-3').classList.add('hidden');
+            document.getElementById('loading').classList.remove('hidden');
+            
+            // 2초 후 로딩 화면 숨기고 결과 화면 표시
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('result').classList.remove('hidden');
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
