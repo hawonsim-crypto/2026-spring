@@ -1,0 +1,89 @@
+Minimal math for AI: function, vector, matrix
+Hands-on exercise
+AI models for AICC
+Solopreneur, AGI, Vibe Coding, Palantir, Agentic,...
+
+
+함수는 입력값에 따라 출력값이 나오는 것
+-과일과 주스, 동전 넣고 음료수
+
+사람은 함수
+-밖에 나가서(입력) 춥다고 느낌(출력)
+-눈으로 보고(입력) 무섭다고 느낌(출력)
+-의사소통-말하는 함수, 듣는 함수
+
+Human-like AI (artificial intelligence)
+
+*STT (speech to text) - 음성인식
+*TTS (text to speech)
+*LM (text to text, language model) / LLM(Large language model)
+*Image recognition (image to text)
+*Image generation (text to image)
+
+Data하면 image, speech, text가 떠올라야 함. 
+
+Vector은 한줄짜리 숫자 (a sequence of numbers)
+A vector is visualized as a point? - 한줄짜리 숫자는 한 점이 될 수 있다. 
+-data visualization - 숫자가 여러 개여도 한 점으로 표현 가능. 
+데이터의 시각화 
+
+벡터가 이루는 각도가 가까우면 비슷한 값
+Cos90도 = 0 =>similarity가 0 = 전혀 다른 값
+
+Image data to a vector
+Ex) 흑백사진
+
+사진,음성,문자 모두 한줄짜리 숫자로 되어 표현 됨 = 벡터로 표현
+
+AI는 vector가 입력되고 또다른 vector가 출력되는 것이다.  
+
+Inner product-내적-행렬 곱셈
+행렬이 연달아 여러 개가 있어도 차례대로 계산하면 됨
+**************AI는 행렬의 연속!!
+
+여러 행렬을 사용하기 때문에 input과 output 사이가 멀어지기 때문에(수직으로 보면 깊기 때문에) deep learning이라고 한다. Deep은 깊게 배운다는 뜻이 아니라 행렬이 여러 개라는 의미
+
+행렬 안에 있는 숫자 하나를 parameter(매개변수)라고 한다. 
+초기 chat gpt 매개변수는 1750억개. 지금은 훨씬 많음.
+
+Parameter를 전기라고 생각
+
+
+딥러닝을 이용한 앱 만들기
+
+LM: language model
+STT:speech to text
+Ex) open AI Whisper, …
+TTS:text to speech
+
+AI chat system in Call Center -실습-보험 상담
+
+What to unlearn and relearn
+-다 틀릴 수 있다는 것을 생각해라
+
+AGI coming soon, and AI rules over Humans? 
+
+LLM 정도에서 수렴되지 않을까?라고 교수님께서는 생각. 
+	1. 데이터를 다 써버렸다.
+	2. 지금의 알고리즘 안에 영혼이 들어있다고 생각할 정도는 아님. 
+
+LLM 분야 - 언어, 수학, 코딩
+	1. 언어는 정보가 많음 / 맞았다, 틀렸다가 분간 어려움
+	2. 수학은 맞았는지 틀렸는지 평가가 명확함 
+	
+	
+과거의 논문 재해석
+-학습자 스스로가 AI의 디렉터가 됨. 내 수준과 목표에 맞게 AI에게 특정 패르소나 부여하여 학습 가증. 자가 설계 가능
+
+팔란티아 회사
+사람의 개입을 최대한 줄여야 한다 VS 사람의 개입을 줄이면 안 된다(팔란티아)
+팔란티아: 사람의 개입이 무조건 있어야 효율이 극대화 된다. 
+
+
+Workflow vs Agentic AI
+Flow에 사람이 개입을 하면서 ai 활용
+
+노드ID, 노드 타입명, 설명, 주요속성리스트
+
+정보 없이 LLM 혼자 결정할 때(LLM)
+온톨로지 없이 일반적인 LLM에 군사 교범만 학습시켜 배치했을 때의 반응. LLM은자신의 매개변수에 저장된 지식만을 바탕으로 그럴듯한 군사적 답변 많이 생성
