@@ -1,0 +1,39 @@
+Decompose LLM
+
+저번 시간 보충)
+Workflow:
+LLM을 쪼개 (Authentification, legacy, FAQ 등) --> text 도출
+*각각의 Agent는 LLM 하나!!
+Auth 인증하는 process 는 LLM이 아니라 회사 시스템임. 
+Leg 도 회사에 있는 database
+FAQ도 AI 아님
+*즉, 외부와도 소통할 수 있는 설계=workflow
+*FDE (전방 대치 기술자/인력)
+
+Agentic AI *designed by planner LLM
+입력이 바깥에 있는 LLM(planner)에게 간다. Workflow에 해당하는 부분을 설계한다.
+*Loof를 돌림
+루프를 계속 평가하고 돌려도 내가 원하는 수준까지 나오리라는 보장은 없음! 단순히 글만 나오게 하는 것 이상으로 행동, 실행하게 하는 것은 복잡해.
+
+AI 용어) 
+	1. RAG (검색 증강 생성)- 벡터 생성하는 중요한 기법 - ex) 1만 페이지를 쪼개면 벡터로 나옴. 벡터화 LLM. 
+결과로 나온 벡터들에 내 질문에 대한 답변이 담겨있을 가능성이 높음.
+	2. Agentic AI - 사람이 모든 단계를 지시하지 않아도, AI가 스스로 목표를 달성하기 위한 계획을 세우고 도구를 사용해 자율적으로 업무를 수행하는 시스템이다. 
+	3. 할루시네이션
+	4. 임베딩(Embedding) - embedding vector - 인간의 언어나 이미지를 AI가 계산할 수 있도록 고차원의 숫자 배열(벡터)로 변환하는 기술이다.
+
+	1. Pretrain
+	2. Fine tuning
+	3. H
+설명) 엄청나게 큰 텍스트를 LLM에 넣어. 여러 알갱이들로 들어감. LLM에는 단어가 안 쓰임. 
+단어보다 작은 거=토큰 /내가 사용한 토큰으로 능력을 평가.
+파인튜닝(미세조정기술) - 이미 만들어진 거대 AI 모델에 우리 회사의 데이터를 추가로 학습시켜 모델 자체의 가중치를 마꾸는 기술
+ 
+ 5. API(application programming interface): 서로 다른 소프트웨어 프로그램이 데이터와 기능을 안전하게 주고받을 수 있도록 연결해주는 표준 통로(규격)
+
+PM (project manager)
+Cloud computing: AWS Azure와 같은 곳에 데이터 보관
+SasS(Software as a Service)
+온프레미스 
+Frontend(웹, 자바스크립트), backend(서버에서 돌아가는 프로그램, 파이썬, 자바)
+
